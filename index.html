@@ -155,7 +155,7 @@
             <li>
               <h4>List the four product which are greater than 500 in price</h4>
               <h5>Query:</h5>
-              <strong>db.products.find({'product_price':{$gte:500}});</strong><br/>
+              <strong>db.products.find({'product_price':{$gte:500}}).limit(4);</strong><br/>
               <button onclick="displayoutput('screenshot13.png')">
                 screenshot13
               </button>
@@ -227,22 +227,17 @@
               </h4>
               <h5>Query:</h5>
               <strong>
-                db.products.find({ $or: [{'product_color':{ $eq:'indigo'}},
+                db.products.find({ $and: [{'product_color':{ $eq:'indigo'}},
                 {'product_price':{ $eq:492}}]});</strong
               ><br/>
-              <button onclick="displayoutput('screenshot22.png')">
-                screenshot22
-              </button>
-              <button onclick="displayoutput('screenshot23.png')">
-                screenshot23
-              </button>
+              <h4>No matching document found</h4>
             </li>
             <hr />
             <li>
               <h4>Delete the products which product price value are 28</h4>
               <h5>Query:</h5>
               <strong>
-                db.products.deleteOne({'product_price':{$eq:28}});</strong
+                db.products.deleteMany({'product_price':{$eq:28}});</strong
               ><br/>
               <button onclick="displayoutput('screenshot24.png')">
                 screenshot24
